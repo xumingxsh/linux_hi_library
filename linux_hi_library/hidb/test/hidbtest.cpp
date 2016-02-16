@@ -20,7 +20,7 @@ void test_hidb()
 	Hi::HiDB db;
 	Hi::HiDBLogFun fun = std::bind(on_db_log, _1, _2);
 	db.set_log_function(on_db_log);
-	const char* conn = "host=225.0.10.1;port=3306;dbname=information_schema;user=root;pwd=root;charset=gbk;";
+	const char* conn = "host=127.0.0.1;port=3306;dbname=information_schema;user=root;pwd=root;charset=gbk;";
 	cout<<"want open database failed"<<endl;
 	try
 	{
@@ -45,7 +45,7 @@ void test_hidb()
 	}
 		
 	db.set_log_function(&on_db_log2);
-	conn = "host=192.168.10.1;port=3306;dbname=information_schema;user=root;pwd=root;charset=gbk;";
+	conn = "host=127.0.0.1;port=3306;dbname=information_schema;user=root;pwd=root;charset=gbk;";
 	cout<<"want open database success"<<endl;
 	bool result = false;
 	

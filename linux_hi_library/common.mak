@@ -5,7 +5,6 @@
 # 3) 命令包好像不允许传参数
 
 DEBUG_ = _RELEASE
-GCPP = g++
 
 # 是否启用函数日志（进入，离开函数打印日志，并统计执行时间）
 HI_USE_FUN_LOG = -DUSE_FUN_LOG
@@ -37,12 +36,12 @@ CMM_GCC_OPTION := \
 	-fstrict-aliasing -Wstrict-aliasing=2 \
 	-Wno-long-long -Wno-unused-parameter \
 	-Wno-non-virtual-dtor -Wno-uninitialized  
+	
 CMM_MAC := -DLINUX_ -D$(DEBUG_) -DLINUX=2 -D_REENTRANT \
 	-D_LARGEFILE64_SOURCE $(HI_USE_FUN_LOG)
 
 CMM_OPTION := $(CMM_GCC_OPTION) $(CMM_MAC) $(CMM_INCLPATH)  
-	
-OBJS2= *.o 
+
 TEST_EXE = run/test
 
 # 定义命令包，makefile中，似乎不能自定义函数，只能用命令包
@@ -52,28 +51,28 @@ define create_lib
 endef
 
 define clear_mid_file
-	rm -f $(OBJS2)
+	rm -f *.o
 endef
 
 define clear_file
-	rm -f $(EXECUTABLE) $(OBJS2)
+	rm -f $(EXECUTABLE) *.o
 endef
 
 # 编译汇编文件（不进行连接）
 # 	-c	编译为目标文件，不连接库
 define build_c
-	$(GCPP) -c $< $(COMM_PROPERTY)
+	g++ -c $< $(COMM_PROPERTY)
 endef
 
 # 编译成so文件
 define create_so
-	$(GCPP) -shared -Wall -g -w -o $(EXECUTABLE) $(OBJS2) \
+	g++ -shared -Wall -g -w -o $(EXECUTABLE) *.o \
 	$(COMM_PROPERTY) -D_GNU_SOURCE 
 endef
 
 # 编译成可执行文件
 define create_exe
-	$(GCPP) -Wall -g -w -o $(EXECUTABLE) $(OBJS2)\
+	g++ -Wall -g -w -o $(EXECUTABLE) *.o \
 	$(COMM_PROPERTY) -D_GNU_SOURCE -lm 
 endef
 
