@@ -1,0 +1,9 @@
+tyk,folder,[cpp_source_path]hicommon
+hidb,folder,[cpp_source_path]hidb
+hinet,folder,[cpp_source_path]hinet
+qdtyk,py,[cpp_source_path]hicommon/build_run.py
+qdhidb,py,[cpp_source_path]/hidb/build_run.py
+qdhinet,py,[cpp_source_path]/hinet/build_run.py
+qdtyk2,sh,[cpp_source_path]hicommon/run.sh
+qdhidb2,sh,[cpp_source_path]/hidb/run.sh
+qdhinet2,sh,[cpp_source_path]/hinet/run.sh
