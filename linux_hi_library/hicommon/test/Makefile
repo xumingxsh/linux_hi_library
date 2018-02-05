@@ -11,7 +11,8 @@ INCLUDE_PATH := -I/usr/include -I../include
 # # -Wall 使gcc产生尽可能多的警告信号
 # # -Werror会在警告的地方停止编译，迫使程序员对自己代码进行修改
 OPT := -ansi -pedantic -pedantic-errors -std=c++11 \
-    -W -Wall -Wno-unused-parameter 
+    -W -Wall -Wno-unused-parameter -pthread 
+
 
     
 OPTION := $(OPT) $(INCLUDE_PATH)  $(LIB_PATH) -lgtest
@@ -19,8 +20,8 @@ OPTION := $(OPT) $(INCLUDE_PATH)  $(LIB_PATH) -lgtest
 .cpp.o:
 	g++ -c $< $(OPTION)
 
-all: clean ../impl/common/hiLog.o logtest.o 
-	g++ -o test $(OPTION) -lgtest_main hiLog.o logtest.o
+all: clean ../impl/common/hiLog.o ../impl/common/hiString.o ../impl/mutex/hiCondition.o ../impl/mutex/hiCritical.o ../impl/mutex/semaphoreImpl.o ../impl/mutex/hiSemaphore.o logtest.o histringtest.o  collectiontest.o  mutextest.o
+	g++ -o test $(OPTION) -lgtest_main hiLog.o logtest.o hiString.o histringtest.o collectiontest.o hiCondition.o hiCritical.o semaphoreImpl.o hiSemaphore.o mutextest.o
 	export LD_LIBRARY_PATH=/usr/lib;./test
 
 clean:

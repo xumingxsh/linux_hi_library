@@ -11,8 +11,8 @@
 #include "common/hiLog.h"
 
 /* @notice There has an issue in '## __VA_ARG__', '##' doesn't work.
- *	   I don't known why. 
- *	   I using 'HI_LOG_INFO("HI_LOG_INFO", "")' 
+ *	   I don't known why.
+ *	   I using 'HI_LOG_INFO("HI_LOG_INFO", "")'
  *	   instead of 'HI_LOG_INFO("HI_LOG_INFO")'
  */
 
@@ -29,7 +29,7 @@ static void addExtendedLogInfo(unsigned short logLevel, const char* file,
 static const char* file_performace = "test.txt";
 static void writeLog_test_performace(unsigned short logLevel, const char* log);
 static void addExtendedLogInfo__test_performace(unsigned short logLevel, const char* file,
-                                                const char* function, int line, Hi_Extended_LogInfo& info);
+        const char* function, int line, Hi_Extended_LogInfo& info);
 
 class LogTest : public testing::Test
 {
@@ -226,7 +226,7 @@ static void writeLog_test_performace(unsigned short logLevel, const char* log)
 }
 
 static void addExtendedLogInfo__test_performace(unsigned short logLevel, const char* file,
-                                                const char* function, int line, Hi_Extended_LogInfo& info)
+        const char* function, int line, Hi_Extended_LogInfo& info)
 {
     timeval curTime;
     gettimeofday(&curTime, NULL);
