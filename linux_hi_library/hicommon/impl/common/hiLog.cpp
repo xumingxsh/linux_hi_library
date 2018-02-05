@@ -32,42 +32,42 @@ void set_hi_log_filter_callback(Hi_Log_Filter_Callback callback)
     filterCallBack = callback;
 }
 
-void set_hi_extended_log_info_callback(Hi_Extended_LogInfo_Callback callback)
+void set_hi_log_extended_info_callback(Hi_Extended_LogInfo_Callback callback)
 {
     extendedInfoCallback = callback;
 }
 
-void set_hi_info_loglevel(unsigned short level)
+void set_hi_loglevel_info(unsigned short level)
 {
     logInfoLevel = level;
 }
 
-void set_hi_debug_loglevel(unsigned short level)
+void set_hi_loglevel_debug(unsigned short level)
 {
     logDebugLevel = level;
 }
 
-void set_hi_critical_loglevel(unsigned short level)
+void set_hi_loglevel_critical(unsigned short level)
 {
     logCriticalLevel = level;
 }
 
-void set_hi_trace_loglevel(unsigned short level)
+void set_hi_loglevel_trace(unsigned short level)
 {
     logTraceLevel = level;
 }
 
-void set_hi_error_loglevel(unsigned short level)
+void set_hi_loglevel_error(unsigned short level)
 {
     logErrorLevel = level;
 }
 
-void set_hi_always_output_loglevel(unsigned short level)
+void set_hi_loglevel_always_output(unsigned short level)
 {
     logAlwaysOutputLevel = level;
 }
 
-bool is_using_extended_info()
+bool is_using_hi_log_extended_info()
 {
     return extendedInfoCallback != NULL;
 }
